@@ -1,2 +1,2 @@
-# Computer-programming-I
+# Computer-Programming-I
 COSE101 / Korea Univ.
