@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void) {
+	
+	int grade = 0;
+	
+	printf("Insert Integer: ");
+	scanf("%d",&grade);
+
+	if(grade>=90) printf("your grade is A \n");
+	else if (grade >= 80) printf("your grade is B \n");
+	else if (grade >= 70) printf("your grade is C \n");
+	else if (grade >= 60) printf("your grade is D \n");
+	else printf("your grade is F \n");
+
+	return 0;
+}

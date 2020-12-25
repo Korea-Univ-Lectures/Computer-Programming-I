@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int lenstr(const char *text);
+
+int main(void) {
+
+	char kb_buf[80];
+
+	puts("Please enter some text");
+	printf("Text is %d characters long.\n", lenstr(gets(kb_buf)));
+
+	return 0;
+}
+
+int lenstr(const char *text) {
+	
+	int count = -1;
+	while (text[++count] != '\0');
+
+	return count;
+}

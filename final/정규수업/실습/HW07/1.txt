@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+	int total=0;
+	char str1[10] = { 0 };
+
+	for (int i = 0; i < 4; i++) {
+		char str[10];
+		printf("Enter an integer: ");
+		scanf("%s",&str);
+		total += atoi(str);
+	}
+
+	printf("Total is: %d\n",total);
+
+	return 0;
+}
+/*
+char str[10];
+char *chPtr;
+
+chPtr = str;
+*chPtr = 'a';
+*/
+
+/*
+Bubble Sort
+
+*/

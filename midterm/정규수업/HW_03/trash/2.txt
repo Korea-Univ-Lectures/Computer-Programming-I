@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main(void) {
+
+	int i, j, l, a = 1;
+	printf("Decinal	binary \n");
+
+	for (i = 0; i < 16; i++) {
+		printf("%d	", i);
+
+		for (j = 3; j > -1; j--) {
+			l = j;
+
+			while (l > 0) {
+				a *= 2;
+				l--;
+			}
+			printf("%d",i%a);
+		}
+		printf("\n");
+
+	}
+
+
+	return 0;
+}

@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void) {
+
+	int a, b;
+	
+	printf("µÎ Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä!: ");
+	scanf("%d %d",&a,&b);
+	if(b!=0) printf("µ¡¼À:%d »¬¼À:%d °ö¼À:%d ³ª´°¼À:%d",a+b,a-b,a*b,a/b);
+	else printf("µ¡¼À:%d »¬¼À:%d °ö¼À:%d ³ª´°¼À:³ª´©´Â ¼ö°¡ 0ÀÔ´Ï´Ù.", a + b, a - b, a*b);
+
+}
+

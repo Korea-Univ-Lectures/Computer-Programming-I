@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+	int score = 90, i=0;
+	char grade = 'B';
+
+	if(score>=90)
+		if (grade == 'A') {
+			printf("wow\n");
+			i++;
+		}
+		else printf("Bad\n");
+
+return 0;
+}
+

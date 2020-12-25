@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(void) {
+
+	int i, j;
+
+	for (i = 2; 1 <= 100; i++) {
+
+		for (j = 2; i <= (i / j); j++) {
+			if (!(i%j))break;
+			if (j > (i / j))printf("%d is prime\n",i);
+		}
+	}
+
+}

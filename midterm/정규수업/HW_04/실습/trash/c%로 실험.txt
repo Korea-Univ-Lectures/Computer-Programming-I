@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main(void) {
+
+	char input = 0;
+
+	while (1) {
+		printf("Enter the character: ");
+		scanf("%c", &input);
+		printf("%d",input);
+		if ((input >= 65 && input <= 90) || (input >= 97 && input <= 122)) break;
+	}
+	printf("%d\n", input);
+	printf("%c\n", input);
+	if (input > 65) printf("strange\n");
+	else printf("not strange\n");
+
+	printf("Input Charater: ");
+	scanf("%c",&input);
+	printf("%d\n", input);
+	printf("%c\n", input);
+	if ((input >= 65 && input<=90)|| (input >= 97 && input <= 122)) printf("Character\n");
+	else printf("not Character \n");
+
+	
+	return 0;
+}

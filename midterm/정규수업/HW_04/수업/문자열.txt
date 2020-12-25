@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(void) {
+
+	char ch;
+	int nDigit = 0, nChar = 0, nOther = 0;
+
+	while (ch=getchar() != '\n') {
+		if ((ch >= 'A'&&ch <= 'Z' )|| (ch >= 'a'&& ch <= 'z'))nChar++;
+		else if (ch >= '0' && ch <= '9')nDigit++;
+		else nOther++;
+
+	}
+
+	printf("\nYou entered\n\n");
+	printf("- Characters : %d\n", nChar);
+	printf("- Digits : %d\n", nDigit);
+	printf("- Others : %d\n", nOther);
+
+}
+

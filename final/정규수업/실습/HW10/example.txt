@@ -1,0 +1,5 @@
+Askd 20182345 2 None
+Choi 20142374 2 Water
+Kim 20184567 1 Math
+Lee 19993756 4 Love
+Hek 10293475 1 Man

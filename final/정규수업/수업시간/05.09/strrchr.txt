@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char str[] = "This is severus";
+	char *pth;
+	pth = strrchr(str, 's');
+	 do {
+		printf("%d\n",pth-str+1);
+		*pth = NULL;
+		pth = strrchr(str, 's');
+	} while (pth != NULL);
+
+	return 0;
+}

@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct _student
+{
+	char name[100];
+	int student_number;
+	int score;
+} Student; //Student 구조체 정의
+
+//함수 prototype
+double get_mean(int, Student*);
+double get_deviation(int, Student*);
+
+int main(void) {
+	Student student_arr[100]; //Student 구조체 배열
+	int i=0; //index
+	char str[40];
+	char* charptr;
+	//파일 출력 준비
+	FILE* fptr = fopen("Student_info.txt", "rt");
+
+	if (fptr == NULL) {
+		printf("파일 읽기 실패");
+		return -1;
+	}
+
+	//한 문장씩 읽어들이고 학번과 이름으로 나누어 저장
+	while (fgets(str, sizeof(str), fptr) != NULL) {
+		charptr = strtok(str, "\t");
+		student_arr[i].student_number = atoi(charptr);
+		charptr = strtok(NULL, "\n");
+		strcpy(student_arr[i++].name, charptr);
+	}
+
+	fclose(fptr);
+	//파일 출력 끝
+
+	//난수 생성해서 score로 저장
+	srand((int)time(NULL));
+	for (i = 0; i < 100; ++i)
+		student_arr[i].score = rand() % 101;
+
+	//학생 정보 (학번 / 이름 / 성적) 출력
+	printf("** 학생 별 성적 리스트 출력 **\n\n");
+	printf("학번\t\t| 이름\t\t\t| 성적\n");
+	printf("------------------------------------------------\n");
+
+	for (i = 0; i < 100; ++i)
+		printf("%-16d| %-22s| %d\n", student_arr[i].student_number, student_arr[i].name, student_arr[i].score);
+	printf("------------------------------------------------\n");
+
+	//성적 평균과 표준편차 출력
+	printf("\n** 성적 데이터 처리 **\n\n");
+	printf("**평균:\t\t%.3f\n\n", get_mean(100, student_arr));
+	printf("**표준편차:\t%.3f\n\n", get_deviation(100, student_arr));
+
+	return 0;
+}
+
+double get_mean(int num, Student* arr_ptr) {
+	int i;
+	int sum = 0;
+
+	for (i = 0; i < num; ++i)
+		sum += (arr_ptr + i)->score;
+
+	return (double)sum/num;
+}
+
+double get_deviation(int num, Student* arr_ptr) {
+	double mean;
+	double variance = 0;
+	int i;
+
+	mean = get_mean(num, arr_ptr); //평균 계산
+
+	for (i = 0; i < num; ++i)
+		variance += pow(((arr_ptr + i)->score) - mean, 2);
+
+	variance /= num; //분산 계산
+
+	return sqrt(variance); //표준편차 계산 후 리턴
+}

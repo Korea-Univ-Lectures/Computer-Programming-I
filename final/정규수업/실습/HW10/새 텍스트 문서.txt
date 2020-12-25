@@ -1,0 +1,94 @@
+
+#include <stdio.h>
+
+typedef struct S_{
+	char name[10];
+	char s_number[9];
+	char grade[2];
+	char major[10];
+}student;
+
+int inputname(char arr[], int n, char* letter1, char* letter2, char def);
+void getstudent(student *stu, char* letter1, char* letter2);
+int inputnum(char num[], int n, char *letter1, char *letter2, char def);
+
+int main() {
+	FILE * fpwrite = fopen("student_file.txt","w");
+	if (fpwrite == NULL) {
+		printf("Fail to open file!");
+		return -1;
+	}
+	student *stud = {0};
+	int i;
+	for (i = 0; i < 5; i++) {
+		getstudent(stud, "Name Student_number Grade Major: ", "Wrong Input!!\n");
+		fputs(stud->name, fpwrite); fputs(stud->s_number, fpwrite); fputs(stud->grade, fpwrite); fputs(stud->major, fpwrite);
+	}
+	fclose(fpwrite);
+
+	FILE * fpread = fopen("student_file.txt", "r");
+	if (fpread == NULL) {
+		printf("Fail to open file!");
+		return -1;
+	}
+
+	char str[60];
+
+	fgets(str,sizeof(str),fpread);
+	printf("%s",str);
+	fgets(str, sizeof(str), fpread);
+	printf("%s", str);
+
+	fclose(fpread);
+
+	return 0;
+}
+int inputname(char arr[], int n, char* letter1, char* letter2, char def) {
+	int judge;
+	int i;
+	
+		judge = 0;
+		printf("%s", letter1);
+		for (i = 0; i < n; i++) {
+			arr[i] = getchar();
+			if (arr[i] == def) {
+				judge = 1;
+				break;
+			}
+		}
+		if (judge == 0) {
+			while (getchar() != '\n');
+			printf("%s", letter2);
+		}
+		return judge;
+}
+void getstudent(student *stu, char* letter1, char* letter2) {
+	int judge = {0};
+	do {
+		printf("%s", letter1);
+
+		do {
+			judge = inputname(stu->name, 10, letter1, letter2, ' ');
+			if (judge == 0)break;
+			judge = inputnum(stu->s_number, 9, letter1, letter2, ' ');
+			if (judge == 0)break;
+			judge = inputnum(stu->grade, 2, letter1, letter2, ' ');
+			if (judge == 0)break;
+			judge = inputname(stu->major, 10, letter1, letter2, '\n');
+			if (judge == 0)break;
+
+		} while (1);
+	} while (judge == 0);
+}
+int inputnum(char num[], int n, char *letter1, char *letter2, char def) {
+	int judge = 1;
+	int i;
+	judge=inputname(num, n, letter1, letter2, def);
+	if (judge == 1) {
+		for (i = 0; num[i]!=def; i++) if (num[i] < '0' || num[i] > '9') {
+			judge = 0;
+			break;
+		}
+	}
+	return judge;
+}

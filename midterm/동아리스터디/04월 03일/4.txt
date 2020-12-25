@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(void) {
+
+	int a;
+	printf("Insert a integer: ");
+	scanf("%d", &a);
+	int total;
+
+	printf("Output:%d", a);
+	total = a;
+	while (a >= 4) {
+		total += a;
+		a = a % 2 == 1 ? a + 3 : a / 2;
+		printf("->%d", a);
+	}
+	printf("\ntotal:%d\n", total);
+
+
+}

@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main(void) {
+
+	int account = 60000;
+	int mina = 0;
+
+	while (account > 0) {
+		printf("Insert money: ");
+		scanf("%d", &mina);
+		if (account - 500 - mina >= 0) {
+			account -= mina + 500;
+			printf("your left balance is : %d\n", account);
+		}
+		else break;
+	} 
+	printf("Not eneogh mineral");
+
+	return 0;
+}

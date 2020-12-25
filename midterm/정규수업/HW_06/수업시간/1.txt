@@ -1,0 +1,215 @@
+#include <stdio.h>
+
+int lenstr(const char *text);
+
+int main(void) {
+
+	char nb_buf[80];
+
+	puts("Please enter some text");
+	printf();
+
+	return 0;
+}
+
+---------------------------------
+
+
+
+
+#include <stdio.h>
+
+int clac_total(int cs, int se, int re);
+
+int main(void) {
+
+	int total; 
+	total =cs +
+
+	puts();
+
+	return 0;
+}
+
+
+-----------------------------------------
+
+
+#include <stdio.h>
+
+int lenstr (const char *text) {
+
+	int count = -1;
+
+	while (text[++count] != '\0');
+
+	return (count);
+}
+
+int main(void) {
+
+	char kb_buf[80];
+
+
+	return 0;
+}
+
+-------------------------------------------------
+#include <stdio.h>
+
+int lenstr (const char *text) {
+
+	int count = -1;
+
+	while (text[++count] != '\0');
+
+	return (count);
+}
+
+int main(void) {
+
+	char kb_buf[80];
+
+	puts("Please enter some text: ");
+	printf("Text is %d characters long.\n",lenstr(gets(kb_buf)));
+
+
+	return 0;
+}
+
+-------------------------
+#include <stdio.h>
+
+void func1(void);
+
+static int count = 10;
+
+
+int main(void) {
+
+	while (count--) func1();
+
+	return 0;
+}
+
+void func1(void) {
+	int thingy = 5;
+	thingy++;
+	printf("Thingy is %d and count is %d\n", thingy, count);
+}
+
+
+------------------------
+
+#include <stdio.h>
+
+void func1(void);
+
+static int count = 10;
+
+
+int main(void) {
+
+	while (count--) func1();
+
+	return 0;
+}
+
+void func1(void) {
+	static int thingy = 5;  //이거 정격변수라서 한번 선언하면 절대 안바뀜. 여기서는 그저 초기화의 의미의 "5"라서 5로 바뀌지 않음.
+	thingy++;
+	printf("Thingy is %d and count is %d\n", thingy, count);
+}
+
+-----------------------
+
+#include <stdio.h>
+
+void func1(void);
+
+static int count = 10;
+
+
+int main(void) {
+
+	while (count--) func1();
+
+	return 0;
+}
+
+void func1(void) {
+	static int thingy; 
+	thingy = 5; //이렇게 선언하면 달라짐. 그저 초기화가 아니라 아예 대입임.
+	thingy++;
+	printf("Thingy is %d and count is %d\n", thingy, count);
+}
+
+----------------------------
+
+#include <stdio.h>
+
+void swap(int a, int b);
+
+int main() {
+	int a, b;
+	scanf("%d %d",&a,&b);
+	printf("in swap : a=%d, b=%d\n", a, b);
+	swap(a,b);//이값들을 준거지, 변수자체를 준것이 아님. call by variable이 아님. 굳이 a,b가 아니라 a+b같은거나 그냥 상수여도 괜춘.
+	printf("in swap : a=%d, b=%d\n", a, b);
+
+	return 0;
+}
+
+void swap (int a, int b) { //call by value 가피본임.원본이 아니양.
+	int tmp;
+	tmp = a;
+	a = b;
+	b = tmp;
+	printf("in swap : a=%d, b=%d\n", a, b); // call 
+}
+
+-----------------------------
+#include <stdio.h>
+
+void swap(int *a, int *b);
+
+int main() {
+	int a, b;
+	scanf("%d %d",&a,&b);
+	printf("in swap : a=%d, b=%d\n", a, b);
+	swap(&a,&b);//이것도 생각하자/ 이거는 주소를 패스하는 거라 a+b같은 거는 문제가 됨.
+	//하나는 value를 패스, 하나는 reference를 패스함.
+	printf("in swap : a=%d, b=%d\n", a, b);
+
+	return 0;
+}
+
+void swap (int *a, int *b) { //call by reference임. 원본, 모나리자 원본을 줌. 값을 받는 것이 아니라 주소값을 받아버림.
+	int tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+	printf("in swap : a=%d, b=%d\n", *a, *b); // call 
+}
+-------------------------
+#include <stdio.h>
+
+//재귀 함수
+void recurse(int count) {//자기 자신을 호출함. ?????
+
+	if (count < 10) {
+		printf("%d	", count);
+		recurse(count+1);
+	}
+}
+
+int main() {
+	recurse(1);
+	
+	printf("\nEnd od program\n");
+
+	return 0;
+}
+--------------------------
+
+

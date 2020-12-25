@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+	int arr[20];
+	int i,j;
+
+	printf("Nonreprtitive array values are:\n");
+
+	for (i = 0; i < 20; i++) {
+		arr[i] = (rand() %19) + 1;
+		for (j = i-1; j >= 0; j--) {
+			
+		}
+		
+		printf("Array[%d]=%d\n",i,arr[i]);
+	}
+
+	return 0;
+}

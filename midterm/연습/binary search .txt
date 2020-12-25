@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+void bis(int value, int arr[]);
+
+int main(void) {
+
+	int arr[15] = {12, 16, 20, 28, 33, 46, 52, 64, 68, 71, 83, 88, 91, 96, 99 };
+	int value=0;
+
+	printf("write down what you want:");
+	scanf("%d",&value);
+	bis(value, arr);
+
+	return 0;
+}
+
+void bis(int value, int arr[]) {
+	int end = 14;
+	int first = 0;
+	int middle = (first + end) / 2;
+	int judge=0;
+
+	while (first<=end) {
+		if (value == arr[middle]) 
+		{
+			printf("Given number %d is in %dth arr\n", value, middle);
+			judge = 1;
+			break;
+		}
+		else if (value > arr[middle])
+		{
+			first = middle + 1;
+			middle = (first + end) / 2;
+		}
+		else 
+		{
+			end = middle - 1;
+			middle = (first + end) / 2;
+		}
+
+	}
+
+	if (!judge) printf("There is no value that you want\n");
+	
+}

@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char input[80];
+	typedef struct {
+		char sn[20];
+		char name[10];
+		char es[10];
+		char ks[10];
+	} student;
+	student school[50];
+	int i = 0, j;
+	char yr[10];
+	char *ptr;
+	int choose;
+
+	printf("Score management\n\n");
+	printf("Enter student number, english score, korean score rexpectively.\n");
+	printf("When you enter student number 0, end input\n");
+	while (1)
+	{
+		gets(input);
+		if (!strcmp(input,"0"))
+			break;
+		else 
+		{
+			ptr = strtok(input, " ");
+			strcpy(school[i].sn, ptr);
+			if (ptr = strtok(NULL, " "))
+			{
+				strcpy(school[i].name, ptr);
+			}
+			if (ptr = strtok(NULL, " "))
+			{
+				strcpy(school[i].es, ptr);
+			}
+			if (ptr = strtok(NULL, " "))
+			{
+				strcpy(school[i].ks, ptr);
+			}
+			i++;
+		}
+	}
+	while (1)
+	{
+		printf("\nChoose a search ways\n");
+		printf("1. Student admission year\n");
+		printf("2. Student name\n");
+		printf("9. exit\n");
+		scanf("%d",&choose);
+		if (choose == 9)
+			return 0;
+		else if (choose == 1)
+		{
+			printf("Enter the admission year.\n");
+			scanf("%s",yr);
+			for (j = 0; j < i; j++)
+			{
+				if (!strncmp(school[j].sn, yr, 4))
+					printf("%s %s %s %s\n\n",school[j].sn, school[j].name, school[j].es, school[j].ks);
+			}
+			continue;
+		}
+		else
+		{
+			printf("Enter the student name\n");
+			scanf("%s",yr);
+			for (j = 0; j < i; j++)
+			{
+				if (!strcmp(school[j].name, yr))
+				{
+					printf("\n\n%s %s %s %s\n\n\n\n", school[j].sn, school[j].name, school[j].es, school[j].ks);
+				}
+			}
+			continue;
+		}
+	}
+}

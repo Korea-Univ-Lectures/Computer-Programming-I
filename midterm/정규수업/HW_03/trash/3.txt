@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main(void) {
+
+	int base=-1, expo=-1, fix= -1;
+	int result = 1;
+
+	while (base < 0) {
+		printf("Enter the base number: ");
+		scanf_s("%d",&base);
+	}
+	while (expo < 0) {
+		printf("Enter the exponent number: ");
+		scanf_s("%d", &expo);
+		fix = expo;
+	}
+
+	while (expo>0) {
+		result *= base;
+		expo--;
+	}
+	if (base == 0 && fix == 0)printf("정의되지 않는 수입니다.\n");
+	else printf("%d^%d is %d\n", base, fix, result);
+
+	return 0;
+}
